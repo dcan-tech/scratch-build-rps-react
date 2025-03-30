@@ -2,11 +2,20 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden;
+
+    background: linear-gradient(180deg, rgb(11, 146, 222), rgb(120, 239, 232));
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+
+
+
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(180deg, rgb(11, 146, 222), rgb(120, 239, 232));
     color: #fff;
     text-align: center;
 
@@ -16,6 +25,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+
 
 .wrapper-main {
     width: 100%;
@@ -92,21 +102,99 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    min-height: 100vh;
+    justify-content: flex-start; /* <- no longer centered vertically */
+    height: 100vh;
+    padding-top: 7rem; /* enough to clear the fixed title */
+    box-sizing: border-box;
+    background: none;
 }
 
+
+
 .game-title {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 920px;
+    max-width: 100%;
+    font-family: "Inter", Helvetica, sans-serif;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 96px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    z-index: 1000;
+    background: transparent;
+    pointer-events: none;
+    padding: 1rem 0 2rem;
 }
 
 .game-messages {
-    font-size: 1.5rem;
+    font-family: "Inter", Helvetica, sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 40px;
+    text-align: center;
+    width: 800px;
+    max-width: 90%;
+    margin-top: 6rem;
     margin-bottom: 2rem;
-    min-height: 2em;
+    padding: 0 1rem;
 }
+
+@media (max-width: 600px) {
+    .game-title {
+        font-size: 64px;
+    }
+    .game-messages {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 767px) {
+    .game-title {
+        font-size: 72px;
+    }
+    .game-messages {
+        font-size: 1.125rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .game-title {
+        font-size: 84px;
+    }
+    .game-messages {
+        font-size: 1.25rem;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .game-title {
+        font-size: 90px;
+    }
+    .game-messages {
+        font-size: 1.375rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .game-title {
+        font-size: 96px;
+    }
+    .game-messages {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+
+
+
+
 
 .player-choice {
     display: flex;
