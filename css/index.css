@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -9,9 +10,6 @@ html, body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-
-
 
 
 body {
@@ -27,183 +25,90 @@ body {
 }
 
 
-.wrapper-main {
-    width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 2rem;
-    border: 4px solid blue;
-    box-sizing: border-box;
-    background-color: #222;
-    border-radius: 12px;
-}
-
-h1 {
-    font-size: 2.6rem;
-    margin-bottom: 1rem;
-}
-
-p {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-}
-
-a {
-    display: block;
-    width: fit-content;
-    margin: 20px auto 0;
-    padding: 10px 20px;
-    font-size: 2.6rem;
-    color: #fff;
-    border: 2px solid #fff;
-    text-decoration: none;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-a:hover {
-    background-color: #fff;
-    color: #111;
-}
-
-/* Responsive Design with distinct colors */
-@media (max-width: 600px) {
-    .wrapper-main {
-        background-color: #444;
-    }
-}
-
-@media (min-width: 601px) and (max-width: 767px) {
-    .wrapper-main {
-        background-color: #0066cc;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-    .wrapper-main {
-        background-color: #33cc33;
-    }
-}
-
-@media (min-width: 992px) and (max-width: 1199px) {
-    .wrapper-main {
-        background-color: #ff9933;
-    }
-}
-
-@media (min-width: 1200px) {
-    .wrapper-main {
-        background-color: #cc0066;
-    }
-}
-
 /* Game UI */
 
 .app-container {
+    padding-top: clamp(8rem, 20vh, 12rem);
+
+    height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: flex-start; /* <- no longer centered vertically */
-    height: 100vh;
-    padding-top: 7rem; /* enough to clear the fixed title */
     box-sizing: border-box;
-    background: none;
+    background: linear-gradient(rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.1));
+    overflow: hidden;
+    /* ensures no vertical scroll */
+}
+
+@media (max-width: 360px) {
+    .app-container {
+        padding-top: 4rem;
+    }
 }
 
 
-
-.game-title {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 920px;
-    max-width: 100%;
-    font-family: "Inter", Helvetica, sans-serif;
-    font-weight: 600;
-    color: #ffffff;
-    font-size: 96px;
-    text-align: center;
-    letter-spacing: 0;
-    line-height: normal;
-    z-index: 1000;
-    background: transparent;
-    pointer-events: none;
-    padding: 1rem 0 2rem;
-}
 
 .game-messages {
-    font-family: "Inter", Helvetica, sans-serif;
-    font-weight: 700;
-    color: #ffffff;
-    font-size: 40px;
+    font-size: clamp(1.5rem, 5vw, 48px);
+    font-weight: 600;
     text-align: center;
-    width: 800px;
-    max-width: 90%;
-    margin-top: 6rem;
-    margin-bottom: 2rem;
-    padding: 0 1rem;
+    color: #ffffff;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 800px;
+    padding: 1rem;
+    box-sizing: border-box;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.05em;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
 }
 
 @media (max-width: 600px) {
-    .game-title {
-        font-size: 64px;
-    }
     .game-messages {
-        font-size: 1rem;
+        font-size: .9rem;
     }
 }
 
 @media (min-width: 601px) and (max-width: 767px) {
-    .game-title {
-        font-size: 72px;
-    }
     .game-messages {
-        font-size: 1.125rem;
+        font-size: 1.75rem;
     }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-    .game-title {
-        font-size: 84px;
-    }
     .game-messages {
-        font-size: 1.25rem;
+        font-size: 2rem;
     }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-    .game-title {
-        font-size: 90px;
-    }
     .game-messages {
-        font-size: 1.375rem;
+        font-size: 2.25rem;
     }
 }
 
 @media (min-width: 1200px) {
-    .game-title {
-        font-size: 96px;
-    }
     .game-messages {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
     }
 }
-
-
-
-
-
-
 
 
 .player-choice {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
+    gap: clamp(1rem, 2vw, 2rem);
+    width: 100%;
+    max-width: 960px;
+    padding: 1rem;
+    box-sizing: border-box;
 }
-
 
 
 .start-button {
@@ -239,12 +144,3 @@ a:hover {
     transform: translate(-50%, -50%) scale(1.05);
     color: #ff0;
 }
-
-
-
-
-
-
-
-
-
